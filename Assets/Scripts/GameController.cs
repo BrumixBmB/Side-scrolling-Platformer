@@ -42,7 +42,7 @@ public class GameController : MonoBehaviour
         transform.localScale = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(duration);
         transform.position = checkpointPos;
-        transform.localScale = new Vector3(1, 1, 1);
+        transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         rb.simulated = true;
         
     }

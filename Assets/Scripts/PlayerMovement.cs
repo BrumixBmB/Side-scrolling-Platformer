@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     private float wallJumpingTime = 0.2f;
     private float wallJumpingCounter;
     private float WallJumpingDuration = 0.4f;
-    private Vector2 wallJumpingPower = new Vector2(8f, 16f);
+    private Vector2 wallJumpingPower = new Vector2(4f, 8f);
     [SerializeField]
     private Transform wallCheck;
     [SerializeField]
@@ -97,11 +97,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if(moveInput > 0)
         {
-            gameObject.transform.localScale = new Vector3(1, 1, 1);
+            gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         }
         else if (moveInput < 0)
         {
-            gameObject.transform.localScale = new Vector3(-1, 1, 1);
+            gameObject.transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
         }
     }
 
@@ -192,7 +192,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isWalled()
     {
-        return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
+        return Physics2D.OverlapCircle(wallCheck.position, 0.1f, wallLayer);
     }
 
     private void WallSlide()
@@ -231,7 +231,7 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.DrawWireSphere(feetPos.position, checkRadius);
     }
 
-    //Colect toys
+    //Collect toys
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Collectable"))
